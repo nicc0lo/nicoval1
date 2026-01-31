@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday My Baby💗</title>
+  <title>A Special Question 💗</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -20,6 +20,29 @@
       background: linear-gradient(135deg, #ffd1dc, #ffe5ec);
       font-family: 'Quicksand', sans-serif;
       padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #ff4d6d;
+      position: absolute;
+      animation: confetti-fall 3s linear;
+      opacity: 0;
+    }
+
+    @keyframes confetti-fall {
+      0% {
+        opacity: 1;
+        transform: translateY(-100px) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+      }
     }
 
     .card {
@@ -31,6 +54,7 @@
       text-align: center;
       animation: fadeInScale 1s ease-out;
       position: relative;
+      z-index: 10;
     }
 
     @keyframes fadeInScale {
@@ -44,32 +68,30 @@
       }
     }
 
-    .card::before {
-      content: '🎂';
-      position: absolute;
-      top: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 70px;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% {
-        transform: translateX(-50%) translateY(0);
-      }
-      50% {
-        transform: translateX(-50%) translateY(-10px);
-      }
-    }
-
-    h1 {
-      font-family: 'Playfair Display', serif;
-      color: #ff4d6d;
-      font-size: 42px;
+    .intro-text {
       margin-bottom: 30px;
-      font-weight: 700;
-      animation: slideDown 1s ease-out 0.3s both;
+      animation: fadeIn 1s ease-out 0.5s both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .intro-text p {
+      font-size: 19px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .question {
+      margin: 40px 0;
+      opacity: 0;
+      animation: slideDown 1s ease-out 1.5s both;
     }
 
     @keyframes slideDown {
@@ -83,84 +105,17 @@
       }
     }
 
-    p {
-      font-size: 20px;
-      line-height: 1.8;
-      color: #555;
-      margin-bottom: 20px;
-      animation: fadeIn 1s ease-out 0.6s both;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    .message {
-      background: linear-gradient(135deg, #fff5f7, #ffe9ed);
-      padding: 25px;
-      border-radius: 15px;
-      margin: 25px 0;
-      border-left: 4px solid #ff4d6d;
-      animation: slideRight 1s ease-out 0.8s both;
-    }
-
-    @keyframes slideRight {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    .back-button {
-      margin-top: 30px;
-      font-family: 'Quicksand', sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-      padding: 14px 35px;
-      border: none;
-      border-radius: 50px;
-      background: linear-gradient(135deg, #ffaec0 0%, #ffc6d3 100%);
+    h2 {
+      font-family: 'Playfair Display', serif;
       color: #ff4d6d;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 8px 20px rgba(255, 174, 192, 0.3);
-      animation: slideUp 1s ease-out 1s both;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .back-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(255, 174, 192, 0.4);
-    }
-
-    .back-button:active {
-      transform: scale(0.95);
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
     .heart-decoration {
-      font-size: 24px;
-      margin: 15px 0;
+      font-size: 50px;
+      margin: 20px 0;
       animation: heartbeat 1.5s infinite;
     }
 
@@ -169,24 +124,216 @@
         transform: scale(1);
       }
       25% {
-        transform: scale(1.1);
+        transform: scale(1.15);
       }
       50% {
         transform: scale(1);
       }
       75% {
-        transform: scale(1.05);
+        transform: scale(1.08);
+      }
+    }
+
+    .button-container {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 2s both;
+    }
+
+    .answer-button {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .answer-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .answer-button:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .answer-button span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #ff4d6d 0%, #ff758f 100%);
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 77, 109, 0.3);
+    }
+
+    .btn-yes:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(255, 77, 109, 0.5);
+    }
+
+    .btn-yes-alt {
+      background: linear-gradient(135deg, #ff758f 0%, #ff96a8 100%);
+      color: white;
+      box-shadow: 0 10px 30px rgba(255, 117, 143, 0.3);
+    }
+
+    .btn-yes-alt:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(255, 117, 143, 0.5);
+    }
+
+    .btn-no {
+      background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+      color: #999;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-no:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .answer-button:active {
+      transform: scale(0.95);
+    }
+
+    .back-button {
+      margin-top: 40px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 30px;
+      border: 2px solid #ffaec0;
+      border-radius: 50px;
+      background: transparent;
+      color: #ff4d6d;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      opacity: 0;
+      animation: fadeIn 1s ease-out 2.5s both;
+    }
+
+    .back-button:hover {
+      background: #ffaec0;
+      transform: translateY(-2px);
+    }
+
+    .celebration {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 60px 50px;
+      border-radius: 30px;
+      box-shadow: 0 30px 80px rgba(255, 77, 109, 0.4);
+      text-align: center;
+      z-index: 1000;
+      display: none;
+      animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    @keyframes popIn {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .celebration h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .celebration p {
+      font-size: 22px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .celebration .heart-rain {
+      font-size: 40px;
+      animation: heartRain 2s infinite;
+    }
+
+    @keyframes heartRain {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-10px);
+      }
+      75% {
+        transform: translateX(10px);
+      }
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 999;
+      display: none;
+      animation: fadeInOverlay 0.4s ease-out;
+    }
+
+    @keyframes fadeInOverlay {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
 
     .image-container {
-      margin: 30px 0;
-      animation: fadeIn 1s ease-out 1s both;
+      margin: 25px 0;
+      animation: fadeIn 1s ease-out 1.2s both;
     }
 
     .personal-photo {
       width: 100%;
-      max-width: 400px;
+      max-width: 350px;
       height: auto;
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
@@ -212,53 +359,127 @@
         padding: 40px 25px;
       }
 
-      h1 {
+      h2 {
+        font-size: 28px;
+      }
+
+      .answer-button {
+        font-size: 18px;
+        padding: 14px 30px;
+      }
+
+      .celebration {
+        padding: 40px 30px;
+        margin: 20px;
+      }
+
+      .celebration h2 {
         font-size: 32px;
       }
 
-      p {
+      .celebration p {
         font-size: 18px;
       }
     }
   </style>
 </head>
 <body>
+  <div class="overlay" id="overlay"></div>
+  
   <div class="card">
-    <h1>Happy 22nd Birthday! 🎉</h1>
-    
-    <div class="image-container">
-      <img src="image1.jpg" alt="Your photo" class="personal-photo">
-      <p class="image-caption"> Pretty little beybe💕</p>
-    </div>
-    
-    <p>
-      Dahil araw mo ngayon, ikaw ang BIDA!
-    </p>
-
-    <div class="image-container">
-      <img src="image2.jpg" alt="Us together" class="personal-photo">
-      <p class="image-caption"> Us 💗</p>
-    </div>
-
-    <div class="message">
-      <p style="margin: 0;">
-        Ang saya saya talaga lagi pag nakakasama kita, lahat ng asaran, tawanan, at tampuhan is a treasure WOW and syempre thank you dahil dun. Super grateful ko to have you in my life. 
+    <div class="intro-text">
+      <p>
+        HAHAHA HAHAHAHA 1 OF MY SURPRISES
       </p>
     </div>
 
-    <!-- IMAGE MARKER 3: Add a favorite memory photo here -->
     <div class="image-container">
-      <img src="image3.jpg" alt="Favorite memory" class="personal-photo">
-      <p class="image-caption"> memories hehe 🌟</p>
+      <img src="image4.jpg" alt="Us being cute" class="personal-photo">
+      <p class="image-caption">This could be us every day 💑</p>
     </div>
 
-    <p>
-      I hope this year brings you all the happiness you deserve and more. Thank you for being you bebe. 💕
-    </p>
+    <div class="question" id="question">
+      <div class="heart-decoration">💖</div>
+      <h2>Will you be my Valentine?</h2>
+    </div>
 
-    <div class="heart-decoration">💗 💖 💕</div>
+    <div class="button-container">
+      <button class="answer-button btn-yes" id="yesBtn" onclick="celebrate('Yay! 💘')">
+        <span>Yes 💕</span>
+      </button>
+      <button class="answer-button btn-no" id="noBtn" onclick="shrinkNo()">
+        <span>No</span>
+      </button>
+    </div>
 
     <a href="index.html" class="back-button">← Back to Main</a>
   </div>
+
+  <div class="celebration" id="celebration">
+    <h2>Yay! 🎉</h2>
+    <p id="celebrationMessage"> THANKS BEBI HEHEHEH</p>
+    <div class="heart-rain">💕 💗 💖 💝 💓</div>
+  </div>
+
+  <script>
+    let noClickCount = 0;
+    
+    function shrinkNo() {
+      noClickCount++;
+      const noBtn = document.getElementById('noBtn');
+      const yesBtn = document.getElementById('yesBtn');
+      
+      const noScale = Math.max(0.1, 1 - (noClickCount * 0.15)); 
+      const yesScale = 1 + (noClickCount * 0.15); 
+      
+      noBtn.style.transform = `scale(${noScale})`;
+      yesBtn.style.transform = `scale(${yesScale})`;
+      
+      if (noClickCount >= 5) {
+        noBtn.style.display = 'none';
+      }
+      
+      noBtn.style.animation = 'shake 0.5s';
+      setTimeout(() => {
+        noBtn.style.animation = '';
+      }, 500);
+    }
+    
+    function celebrate(message) {
+      const overlay = document.getElementById('overlay');
+      const celebration = document.getElementById('celebration');
+      const celebrationMessage = document.getElementById('celebrationMessage');
+      
+      celebrationMessage.textContent = message;
+      overlay.style.display = 'block';
+      celebration.style.display = 'block';
+      
+      for (let i = 0; i < 50; i++) {
+        createConfetti();
+      }
+      
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        celebration.style.display = 'none';
+      }, 3500);
+    }
+
+    function createConfetti() {
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * 100 + '%';
+      confetti.style.background = ['#ff4d6d', '#ff758f', '#ff96a8', '#ffc6d3', '#ffe5ec'][Math.floor(Math.random() * 5)];
+      confetti.style.animationDelay = Math.random() * 1 + 's';
+      document.body.appendChild(confetti);
+      
+      setTimeout(() => {
+        confetti.remove();
+      }, 3000);
+    }
+
+    setTimeout(() => {
+      document.getElementById('question').style.display = 'block';
+    }, 1000);
+  </script>
 </body>
 </html>
