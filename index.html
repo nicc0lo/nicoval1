@@ -23,7 +23,6 @@
       position: relative;
     }
 
-    /* Floating hearts background animation */
     .heart-bg {
       position: absolute;
       width: 100%;
@@ -216,6 +215,34 @@
       transform: scale(0.95);
     }
 
+    .image-container {
+      margin: 25px 0 20px 0;
+      animation: fadeIn 1.5s ease-out 1s both;
+    }
+
+    .personal-photo {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+      transition: transform 0.3s ease;
+      border: 3px solid rgba(255, 174, 192, 0.3);
+    }
+
+    .personal-photo:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(255, 77, 109, 0.3);
+    }
+
+    .image-caption {
+      margin-top: 12px;
+      font-size: 16px;
+      color: #ff4d6d;
+      font-style: italic;
+      font-weight: 600;
+    }
+
     @media (max-width: 600px) {
       .main-card {
         padding: 50px 30px;
@@ -243,6 +270,12 @@
   <div class="container">
     <div class="main-card">
       <h1>Something Special</h1>
+      
+      <div class="image-container">
+        <img src="image5.jpg" alt="For you" class="personal-photo">
+        <p class="image-caption">Made with love 💝</p>
+      </div>
+      
       <p class="subtitle">I made something for you...</p>
       
       <div class="button-container">
@@ -257,7 +290,6 @@
   </div>
 
   <script>
-    // Create floating hearts
     const heartBg = document.getElementById('heartBg');
     const hearts = ['💗', '💖', '💕', '💝', '💓'];
     
@@ -275,12 +307,10 @@
       }, 20000);
     }
 
-    // Create initial hearts
     for (let i = 0; i < 15; i++) {
       createHeart();
     }
 
-    // Continue creating hearts
     setInterval(createHeart, 1000);
   </script>
 </body>
