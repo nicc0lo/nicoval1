@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 💗</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd1dc, #ffe5ec);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 400px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h1 {
+      color: #ff4d6d;
+    }
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Birthday 🎂</h1>
+    <p>
+      I know this is a little random,<br>
+      but I wanted to ask you something special…
+    </p>
+    <h2>Will you be my Valentine? 💖</h2>
+  </div>
+</body>
+</html>
+<button onclick="alert('Yay! 💘')">Yes 💕</button>
+<button onclick="alert('Still yes 😌')">Yes</button>
+<p id="q" style="display:none;">Will you be my Valentine? 💖</p>
+<script>
+  setTimeout(() => {
+    document.getElementById("q").style.display = "block";
+  }, 2000);
+</script>
