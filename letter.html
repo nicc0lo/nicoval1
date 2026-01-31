@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday 💗</title>
+  <title>Happy Birthday My Baby💗</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -179,6 +179,34 @@
       }
     }
 
+    .image-container {
+      margin: 30px 0;
+      animation: fadeIn 1s ease-out 1s both;
+    }
+
+    .personal-photo {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+      transition: transform 0.3s ease;
+      border: 3px solid rgba(255, 174, 192, 0.3);
+    }
+
+    .personal-photo:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(255, 77, 109, 0.3);
+    }
+
+    .image-caption {
+      margin-top: 12px;
+      font-size: 16px;
+      color: #ff4d6d;
+      font-style: italic;
+      font-weight: 600;
+    }
+
     @media (max-width: 600px) {
       .card {
         padding: 40px 25px;
@@ -196,20 +224,36 @@
 </head>
 <body>
   <div class="card">
-    <h1>Happy Birthday! 🎉</h1>
+    <h1>Happy 22nd Birthday! 🎉</h1>
+    
+    <div class="image-container">
+      <img src="image1.jpg" alt="Your photo" class="personal-photo">
+      <p class="image-caption"> Pretty little beybe💕</p>
+    </div>
     
     <p>
-      Today is your special day, and I wanted to take a moment to celebrate the incredible person you are.
+      Dahil araw mo ngayon, ikaw ang BIDA!
     </p>
+
+    <div class="image-container">
+      <img src="image2.jpg" alt="Us together" class="personal-photo">
+      <p class="image-caption"> Us 💗</p>
+    </div>
 
     <div class="message">
       <p style="margin: 0;">
-        Every moment with you makes life brighter, every laugh we share is a treasure, and every day I'm grateful to have you in my life. You bring so much joy, warmth, and love into this world.
+        Ang saya saya talaga lagi pag nakakasama kita, lahat ng asaran, tawanan, at tampuhan is a treasure WOW and syempre thank you dahil dun. Super grateful ko to have you in my life. 
       </p>
     </div>
 
+    <!-- IMAGE MARKER 3: Add a favorite memory photo here -->
+    <div class="image-container">
+      <img src="image3.jpg" alt="Favorite memory" class="personal-photo">
+      <p class="image-caption"> memories hehe 🌟</p>
+    </div>
+
     <p>
-      I hope this year brings you all the happiness you deserve and more. Thank you for being you. 💕
+      I hope this year brings you all the happiness you deserve and more. Thank you for being you bebe. 💕
     </p>
 
     <div class="heart-decoration">💗 💖 💕</div>
