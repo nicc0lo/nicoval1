@@ -24,7 +24,6 @@
       overflow: hidden;
     }
 
-    /* Confetti effect */
     .confetti {
       position: absolute;
       width: 10px;
@@ -203,6 +202,18 @@
       box-shadow: 0 15px 40px rgba(255, 117, 143, 0.5);
     }
 
+    .btn-no {
+      background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+      color: #999;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .btn-no:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
     .answer-button:active {
       transform: scale(0.95);
     }
@@ -281,6 +292,18 @@
       }
     }
 
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-10px);
+      }
+      75% {
+        transform: translateX(10px);
+      }
+    }
+
     .overlay {
       position: fixed;
       top: 0;
@@ -301,6 +324,34 @@
       to {
         opacity: 1;
       }
+    }
+
+    .image-container {
+      margin: 25px 0;
+      animation: fadeIn 1s ease-out 1.2s both;
+    }
+
+    .personal-photo {
+      width: 100%;
+      max-width: 350px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2);
+      transition: transform 0.3s ease;
+      border: 3px solid rgba(255, 174, 192, 0.3);
+    }
+
+    .personal-photo:hover {
+      transform: scale(1.02);
+      box-shadow: 0 15px 40px rgba(255, 77, 109, 0.3);
+    }
+
+    .image-caption {
+      margin-top: 12px;
+      font-size: 16px;
+      color: #ff4d6d;
+      font-style: italic;
+      font-weight: 600;
     }
 
     @media (max-width: 600px) {
@@ -343,17 +394,22 @@
       </p>
     </div>
 
+    <div class="image-container">
+      <img src="image4.jpg" alt="Us being cute" class="personal-photo">
+      <p class="image-caption">This could be us every day 💑</p>
+    </div>
+
     <div class="question" id="question">
       <div class="heart-decoration">💖</div>
       <h2>Will you be my Valentine?</h2>
     </div>
 
     <div class="button-container">
-      <button class="answer-button btn-yes" onclick="celebrate('Yay! 💘')">
+      <button class="answer-button btn-yes" id="yesBtn" onclick="celebrate('Yay! 💘')">
         <span>Yes 💕</span>
       </button>
-      <button class="answer-button btn-yes-alt" onclick="celebrate('I knew it! 😊💗')">
-        <span>Also Yes</span>
+      <button class="answer-button btn-no" id="noBtn" onclick="shrinkNo()">
+        <span>No</span>
       </button>
     </div>
 
@@ -367,6 +423,29 @@
   </div>
 
   <script>
+    let noClickCount = 0;
+    
+    function shrinkNo() {
+      noClickCount++;
+      const noBtn = document.getElementById('noBtn');
+      const yesBtn = document.getElementById('yesBtn');
+      
+      const noScale = Math.max(0.1, 1 - (noClickCount * 0.15)); 
+      const yesScale = 1 + (noClickCount * 0.15); 
+      
+      noBtn.style.transform = `scale(${noScale})`;
+      yesBtn.style.transform = `scale(${yesScale})`;
+      
+      if (noClickCount >= 5) {
+        noBtn.style.display = 'none';
+      }
+      
+      noBtn.style.animation = 'shake 0.5s';
+      setTimeout(() => {
+        noBtn.style.animation = '';
+      }, 500);
+    }
+    
     function celebrate(message) {
       const overlay = document.getElementById('overlay');
       const celebration = document.getElementById('celebration');
@@ -376,12 +455,10 @@
       overlay.style.display = 'block';
       celebration.style.display = 'block';
       
-      // Create confetti
       for (let i = 0; i < 50; i++) {
         createConfetti();
       }
       
-      // Close celebration after 3 seconds
       setTimeout(() => {
         overlay.style.display = 'none';
         celebration.style.display = 'none';
@@ -401,7 +478,6 @@
       }, 3000);
     }
 
-    // Add initial delay to question appearance
     setTimeout(() => {
       document.getElementById('question').style.display = 'block';
     }, 1000);
