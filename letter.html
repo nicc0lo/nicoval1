@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 💗</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd1dc, #ffe5ec);
+      font-family: 'Quicksand', sans-serif;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 50px 40px;
+      border-radius: 25px;
+      max-width: 550px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      animation: fadeInScale 1s ease-out;
+      position: relative;
+    }
+
+    @keyframes fadeInScale {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .card::before {
+      content: '🎂';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 70px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      50% {
+        transform: translateX(-50%) translateY(-10px);
+      }
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #ff4d6d;
+      font-size: 42px;
+      margin-bottom: 30px;
+      font-weight: 700;
+      animation: slideDown 1s ease-out 0.3s both;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-out 0.6s both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .message {
+      background: linear-gradient(135deg, #fff5f7, #ffe9ed);
+      padding: 25px;
+      border-radius: 15px;
+      margin: 25px 0;
+      border-left: 4px solid #ff4d6d;
+      animation: slideRight 1s ease-out 0.8s both;
+    }
+
+    @keyframes slideRight {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .back-button {
+      margin-top: 30px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 14px 35px;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ffaec0 0%, #ffc6d3 100%);
+      color: #ff4d6d;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(255, 174, 192, 0.3);
+      animation: slideUp 1s ease-out 1s both;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .back-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(255, 174, 192, 0.4);
+    }
+
+    .back-button:active {
+      transform: scale(0.95);
+    }
+
+    .heart-decoration {
+      font-size: 24px;
+      margin: 15px 0;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.1);
+      }
+      50% {
+        transform: scale(1);
+      }
+      75% {
+        transform: scale(1.05);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 40px 25px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy Birthday! 🎉</h1>
+    
+    <p>
+      Today is your special day, and I wanted to take a moment to celebrate the incredible person you are.
+    </p>
+
+    <div class="message">
+      <p style="margin: 0;">
+        Every moment with you makes life brighter, every laugh we share is a treasure, and every day I'm grateful to have you in my life. You bring so much joy, warmth, and love into this world.
+      </p>
+    </div>
+
+    <p>
+      I hope this year brings you all the happiness you deserve and more. Thank you for being you. 💕
+    </p>
+
+    <div class="heart-decoration">💗 💖 💕</div>
+
+    <a href="index.html" class="back-button">← Back to Main</a>
+  </div>
+</body>
+</html>
